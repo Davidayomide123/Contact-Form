@@ -1,61 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="style.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Contact Us · Email form</title>
+
 </head>
 <body>
   <div class="container">
-    
-    <form action="">
-
+    <!-- ✅ FORM SENDS TO YOUR EMAIL VIA FORMSPREE (free service) -->
+    <!-- action points to formspree endpoint that forwards to dpere0765@gmail.com -->
+    <form action="https://formspree.io/f/dpere0765@gmail.com" method="POST">
+      
       <h1 class="contact">Contact Us</h1>
 
       <div class="group-names">
-
         <div class="group-box">
           <label for="firstname">First Name <span>*</span></label>
-          <input type="text" required class="group-inputs">
+          <input type="text" id="firstname" name="firstname" required class="group-inputs" placeholder="John">
         </div>
-
         <div class="group-box">
           <label for="lastname">Last Name <span>*</span></label>
-          <input type="text" required class="group-inputs">
+          <input type="text" id="lastname" name="lastname" required class="group-inputs" placeholder="Doe">
         </div>
-
       </div>
 
       <div class="email">
-        <label for="">Email Address <span>*</span></label>
-        <input type="email" required class="email-input">
+        <label for="email">Email Address <span>*</span></label>
+        <input type="email" id="email" name="email" required class="email-input" placeholder="john@example.com">
       </div>
 
       <div class="query-section">
-
-        <label for="Query type">Query Type <span>*</span></label>
-
+        <label>Query Type <span>*</span></label>
         <div class="query-options">
-
-          <div>
-            <button class="query-box"><input type="radio">General Enquiry</button>
-          </div>
-
-          <div >
-            <button class="query-box"><input type="radio">Support Request</button>
-          </div>
-
+          <!-- using label to wrap radio + text (better for accessibility) -->
+          <label class="query-box">
+            <input type="radio" name="query_type" value="General Enquiry" required>
+            General Enquiry
+          </label>
+          <label class="query-box">
+            <input type="radio" name="query_type" value="Support Request" required>
+            Support Request
+          </label>
         </div>
       </div>
+
       <div class="message-box">
-        <label for="">Message <span>*</span></label>
-        <textarea name="" id="" class="message-input"></textarea>
+        <label for="message">Message <span>*</span></label>
+        <textarea id="message" name="message" required class="message-input" placeholder="Write your message here..."></textarea>
       </div>
 
       <div class="consent">
-        <input type="checkbox" class="consent-box">
-        <label for="">I consent to being contacted by the team</label>
+        <!-- consent checkbox — required -->
+        <input type="checkbox" id="consent" name="consent" required class="consent-box">
+        <label for="consent">I consent to being contacted by the team <span>*</span></label>
       </div>
 
       <button type="submit" class="submit">Submit</button>
